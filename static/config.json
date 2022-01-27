@@ -1,16 +1,18 @@
 {
     "title": "Dashboard",
+    "favicon": "/static/favicon.svg",
     "children": [
         {
             "children": [
                 {
                     "name": "GitHub",
                     "link": "https://github.com/randomman552",
-                    "icon": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                    "icon": "/static/github.png"
                 },
                 {
                     "name": "Google",
-                    "link": "https://google.co.uk"
+                    "link": "https://google.co.uk",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/300/300221.png"
                 }
             ]
         }
