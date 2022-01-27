@@ -1,24 +1,32 @@
-{% macro render_category(category_name, children) %}
+{%- macro render_category(category_name, children) %}
 <article class="category">
-    <header class="header">
-        {{ category_name }}
-    </header>
+    {%- if category_name -%}
+        <header class="header">
+            {{ category_name }}
+        </header>
+    {%- endif -%}
     <article class="items">
         {%- for child in children -%}
             {{ render_child(child) }}
         {%- endfor -%}
     </article>
 </article>
-{% endmacro %}
+{% endmacro -%}
 
-{% macro render_child(child) %}
-<a class="item" href="{{ child.get('link') }}">
+{%- macro render_child(child) %}
+{# Get required components from the child #}
+{%- set name = child.get("name") -%}
+{%- set link = child.get("link") -%}
+{%- set icon_url = child.get('icon', url_for('static', filename='default.svg')) -%}
+
+<a class="item" href="{{ link }}">
     <img 
         class="icon"
-        src="{{ child.get('icon', url_for('static', filename='default.svg')) }}"
+        src="{{ icon_url }}"
+        alt="Icon for {{ name }}"
     >
     <article class="name">
-        {{ child.get("name") }}
+        {{ name }}
     </article>
 </a>
-{% endmacro %}
+{% endmacro -%}

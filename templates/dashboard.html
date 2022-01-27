@@ -3,16 +3,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ config.get("title", "Dashboard") }}</title>
+        {%- set title = config.get("title", "Dashboard") -%}
+        {%- set favicon_url = config.get("favicon", "/static/favicon.ico") -%}
+        
+        <title>{{ title }}</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" href="/static/styles.css">
-        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ favicon_url }}" type="image/x-icon">
     </head>
     <body>
         <article class="dashboard">
             {%- if config.get("children") -%}
                 {%- for child in config.get("children") -%}
-                    {%- set category_name = child.get("name", "uncategorised") -%}
+                    {%- set category_name = child.get("name") -%}
                     {%- set category_children = child.get("children") -%}
                     {{ render_category(category_name, category_children) }}
                 {%- endfor -%}
