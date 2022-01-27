@@ -79,5 +79,4 @@ A example set of fields is shown below:
       - The icon variable can be a url to any image
       - Images can be locally hosted by placing them into the data directory of this program, where they can then be accessed via the `/static` endpoint
 
-#### Rendered output
-![Output of example config](.github/preview.png)
+The output rendered by this example is the preview image of this repo.
