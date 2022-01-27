@@ -15,7 +15,7 @@
         {# Render header text if specified in the config #}
         {%- set header_text = config.get("header") -%}
         {%- if header_text -%}
-            <header class="header">
+            <header class="page-header">
                 {{ header_text | safe }}
             </header>
         {%- endif -%}
@@ -36,7 +36,7 @@
         {# Render footer text if specified in the config #}
         {%- set footer_text = config.get("footer") -%}
         {%- if footer_text -%}
-            <footer class="footer">
+            <footer class="page-footer">
                 {{ footer_text | safe }}
             </footer>
         {%- endif -%}
