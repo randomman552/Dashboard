@@ -92,6 +92,7 @@ body {
     align-items: center;
     color: var(--color);
     transition: inherit;
+    text-transform: capitalize;
 }
 
 .dashboard .category .item:hover .name {
