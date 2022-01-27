@@ -2,9 +2,14 @@
 
 :root {
     font-family: 'Open Sans', sans-serif;
-    --background-color: #fff;
-    --color: #000;
-    --border-color: #000;
+
+    --background-color: #171a21;
+    --color: #b8bec2;
+    --border-color: transparent;
+
+    --hover-background-color: rgba(255, 255, 255, 0.25);
+    --hover-color: #0099FF;
+    --hover-border-color: #0099FF;
 }
 
 body {
@@ -44,7 +49,7 @@ body {
 }
 
 .dashboard .category .item {
-    height: 60px;
+    height: 70px;
     width: 290px;
     padding: 5px;
     margin: 5px;
@@ -53,8 +58,30 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 2px;
     border: solid 1px var(--border-color);
+    transition: 0.3s;
+    position: relative;
+}
+
+.dashboard .category .item::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    border-top: solid 1px var(--border-color);
+    border-bottom: solid 1px var(--border-color);
+    background-color: var(--hover-background-color);
+    color: var(--color);
+    transition: inherit;
+}
+
+.dashboard .category .item:hover::before {
+    width: 100%;
+    border-top: solid 1px var(--hover-border-color);
+    border-bottom: solid 1px var(--hover-border-color);
+    background-color: var(--hover-background-color);
+    color: var(--color);
 }
 
 .dashboard .category .item .name {
@@ -64,9 +91,14 @@ body {
     justify-content: center;
     align-items: center;
     color: var(--color);
+    transition: inherit;
+}
+
+.dashboard .category .item:hover .name {
+    color: var(--hover-color);
 }
 
 .dashboard .category .item .icon {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
