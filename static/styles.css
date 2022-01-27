@@ -24,6 +24,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     box-sizing: border-box;
 }
@@ -36,7 +37,9 @@ body {
     align-items: center;
     justify-content: flex-start;
     overflow-y: auto;
-    height: 80%;
+    min-height: 80%;
+    max-height: 80%;
+    transition: 0.3s;
 }
 
 .dashboard .category .header {
@@ -61,8 +64,8 @@ body {
     text-decoration: none;
     border-radius: 2px;
     border: solid 1px var(--border-color);
-    transition: 0.3s;
     position: relative;
+    transition: 0.3s;
 }
 
 .dashboard .category .item::before {
@@ -103,4 +106,12 @@ body {
 .dashboard .category .item .icon {
     height: 60px;
     width: 60px;
+    transition: inherit;
+}
+
+@media (max-width: 1000px) {
+    .dashboard .category {
+        max-height: unset;
+        min-height: 200px;
+    }
 }
