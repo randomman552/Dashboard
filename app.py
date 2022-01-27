@@ -1,22 +1,27 @@
-import json
 import os
-from flask import Flask, render_template
+from werkzeug.exceptions import NotFound
+from flask import Flask, render_template, send_from_directory
+
+from util import get_config
 
 
-app = Flask(__name__)
+# Set static_folder to None so we can register our own handler
+app = Flask(__name__, static_folder=None)
 app.config["DASHBOARD_DATA_PATH"] = os.path.join(os.getcwd(), "data")
 
 
-def get_config() -> dict:
-    """Function to get config or return default config"""
-    data_path = app.config.get("DASHBOARD_DATA_PATH")
-    config_path = os.path.join(data_path, "config.json")
+@app.route("/static/<path:filename>")
+def static(filename):
+    """
+    Custom static file handler.
+    We use this to first query the data directory, 
+    then fall back to the static directory if it is not found
+    """
     try:
-        with open(config_path, "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print("")
-        return dict()
+        data_path = app.config.get("DASHBOARD_DATA_PATH")
+        return send_from_directory(data_path, filename)
+    except NotFound:
+        return send_from_directory("static", filename)
 
 
 @app.route("/")
