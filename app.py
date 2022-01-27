@@ -28,5 +28,4 @@ def static(filename):
 def dashboard():
     """Dashboard rendering function"""
     config = get_config()
-    print(f"Rendering dashboard with config: {config}")
     return render_template("dashboard.html", config=config)
