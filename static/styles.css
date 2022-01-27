@@ -77,8 +77,7 @@ a:visited:hover {
     align-items: center;
     justify-content: flex-start;
     overflow-y: auto;
-    min-height: 80%;
-    max-height: 80%;
+    min-height: 80vh;
     transition: 0.3s;
 }
 
