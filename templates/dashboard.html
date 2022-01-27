@@ -1,11 +1,24 @@
+{% from "macros.html" import render_category, render_child %}
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Dashboard</title>
+        <title>{{ config.get("title", "Dashboard") }}</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" href="/static/styles.css">
+        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <h1>Now this is a Dashboard</h1>
+        <article class="dashboard">
+            {%- if config.get("children") -%}
+                {%- for child in config.get("children") -%}
+                    {%- set category_name = child.get("name", "uncategorised") -%}
+                    {%- set category_children = child.get("children") -%}
+                    {{ render_category(category_name, category_children) }}
+                {%- endfor -%}
+            {%- else -%}
+                There doesn't appear to be anything here...
+            {%- endif -%}
+        </article>
     </body>
 </html>
