@@ -80,3 +80,6 @@ A example set of fields is shown below:
       - Images can be locally hosted by placing them into the data directory of this program, where they can then be accessed via the `/static` endpoint
 
 The output rendered by this example is the preview image of this repo.
+
+## Notes
+This project uses an icon designed by [Clarity Design](https://clarity.design/) as its logo and as a default icon.
