@@ -12,6 +12,15 @@
         <link rel="shortcut icon" href="{{ favicon_url }}" type="image/x-icon">
     </head>
     <body>
+        {# Render header text if specified in the config #}
+        {%- set header_text = config.get("header") -%}
+        {%- if header_text -%}
+            <header class="header">
+                {{ header_text | safe }}
+            </header>
+        {%- endif -%}
+        
+        {# Render dashboard #}
         <article class="dashboard">
             {%- if config.get("children") -%}
                 {%- for child in config.get("children") -%}
@@ -23,5 +32,13 @@
                 There doesn't appear to be anything here...
             {%- endif -%}
         </article>
+
+        {# Render footer text if specified in the config #}
+        {%- set footer_text = config.get("footer") -%}
+        {%- if footer_text -%}
+            <footer class="footer">
+                {{ footer_text | safe }}
+            </footer>
+        {%- endif -%}
     </body>
 </html>

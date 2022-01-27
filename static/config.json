@@ -1,5 +1,6 @@
 {
     "title": "Dashboard",
+    "footer": "<a href='https://github.com/randomman552/Dashboard'>GitHub Repo</a>",
     "favicon": "/static/favicon.svg",
     "children": [
         {
