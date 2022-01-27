@@ -1,10 +1,9 @@
 {%- macro render_category(category_name, children) %}
 <article class="category">
-    {%- if category_name -%}
-        <header class="header">
-            {{ category_name }}
-        </header>
-    {%- endif -%}
+    <header class="header">
+        {%- if category_name -%}{{ category_name }}{%- endif -%}
+    </header>
+    
     <article class="items">
         {%- for child in children -%}
             {{ render_child(child) }}
