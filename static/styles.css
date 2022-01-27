@@ -151,7 +151,16 @@ a:visited:hover {
 
 @media (max-width: 1000px) {
     .dashboard .category {
+        width: 100%;
         max-height: unset;
         min-height: 200px;
+    }
+
+    .dashboard .category .items {
+        width: 90%;
+    }
+
+    .dashboard .category .item {
+        width: 100%;
     }
 }
