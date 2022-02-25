@@ -26,7 +26,7 @@ services:
 
 This allows for the mounting of custom styles and config files in the host file system at `/storage/dashboard`
 
-## Environment variables
+### Environment variables
 - `DASHBOARD_PORT` - The port used by gunicorn to present the application.
   - Defaults to 80
 - `DASHBOARD_DATA_PATH` - The path where data is located. Allows for customisation of the dashboard.
