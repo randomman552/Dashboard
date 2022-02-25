@@ -83,7 +83,7 @@ The output rendered by this example is the preview image of this repo.
 
 ### Overriding styles
 A `styles.css` file can be placed within the data directory to override this applications default styles.\
-For an example please look at the default [styles.css](blob/master/static/styles.css) file.
+For an example please look at the default [styles.css](static/styles.css) file.
 
 
 ## Notes
