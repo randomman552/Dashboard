@@ -5,6 +5,7 @@
     <head>
         {%- set title = config.get("title", "Dashboard") -%}
         {%- set favicon_url = config.get("favicon", "/static/favicon.svg") -%}
+        {%- set default_icon = config.get("defaultIcon", "/static/default.svg") -%}
         
         <title>{{ title }}</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -26,7 +27,7 @@
                 {%- for child in config.get("children") -%}
                     {%- set category_name = child.get("name") -%}
                     {%- set category_children = child.get("children") -%}
-                    {{ render_category(category_name, category_children) }}
+                    {{ render_category(category_name, category_children, default_icon) }}
                 {%- endfor -%}
             {%- else -%}
                 There doesn't appear to be anything here...

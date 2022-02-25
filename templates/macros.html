@@ -1,4 +1,4 @@
-{%- macro render_category(category_name, children) %}
+{%- macro render_category(category_name, children, default_icon="/static/default.svg") %}
 <article class="category">
     <header class="header">
         {%- if category_name -%}{{ category_name }}{%- endif -%}
@@ -6,17 +6,18 @@
     
     <article class="items">
         {%- for child in children -%}
-            {{ render_child(child) }}
+            {{ render_child(child, default_icon) }}
         {%- endfor -%}
     </article>
 </article>
 {% endmacro -%}
 
-{%- macro render_child(child) %}
+
+{%- macro render_child(child, default_icon="/static/default.svg") %}
 {# Get required components from the child #}
 {%- set name = child.get("name") -%}
 {%- set link = child.get("link") -%}
-{%- set icon_url = child.get('icon', url_for('static', filename='default.svg')) -%}
+{%- set icon_url = child.get('icon', default_icon) -%}
 
 <a class="item" href="{{ link }}">
     <img 

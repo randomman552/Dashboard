@@ -65,21 +65,26 @@ A example set of fields is shown below:
     ]
 }
 ```
+The output rendered by this example is the preview image of this repo.
 
 #### Description of fields:
 - `title` - The title of the resulting page
 - `footer` - HTML contained in the page footer
 - `header` - HTML contained in the page header
+- `defaultIcon` - Path to the icon to be used when one has not been assigned, defaults to `default.svg`
 - `children` - A list of category objects, each with its own name and children
   - `name` - The name of each category
   - `children` - A list of item objects, each with its own attributes
     - `name` - The name of the link, this is displayed next to the icon
     - `link` - A link to the service
-    - `icon` - A url refering to the icon displayed next to this item
+    - `icon` - Path referring to the icon displayed next to this item
       - The icon variable can be a url to any image
-      - Images can be locally hosted by placing them into the data directory of this program, where they can then be accessed via the `/static` endpoint
+      - Images can be locally hosted by placing them into the data directory of this program, where they can then be accessed via the `/static/<path to file>` endpoint
 
-The output rendered by this example is the preview image of this repo.
+### Overriding styles
+A `styles.css` file can be placed within the data directory to override this applications default styles.\
+For an example please look at the default [styles.css](blob/master/static/styles.css) file.
+
 
 ## Notes
 This project uses an icon designed by [Clarity Design](https://clarity.design/) as its logo and as a default icon.
