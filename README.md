@@ -8,10 +8,10 @@ Designed to be hosted through docker.
 I recommend deploying this application with the use of docker compose for ease.\
 An example of deployment (with [traefik](https://traefik.io/traefik/) reverse proxy) can be seen below:
 ```yml
-version: '3.9'
+version: '3.8'
 services:
   dashboard:
-    image: randomman552/dashboard:latest
+    image: ghcr.io/randomman552/dashboard:latest
     user: 1000:1000
     container_name: dashboard
     volumes:
